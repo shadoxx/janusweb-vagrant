@@ -21,5 +21,5 @@ Vagrant.configure(2) do |config|
   end
 
   ## PROVISION
-  config.vm.provision "shell", path: "provision/01-install_nodejs" 
+  config.vm.provision "shell", path: "provision/01-install-os-packages.sh" 
 end
