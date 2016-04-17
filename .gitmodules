@@ -1,0 +1,6 @@
+[submodule "provision/submodules/elation"]
+	path = provision/submodules/elation
+	url = https://github.com/jbaicoianu/elation.git
+[submodule "provision/submodules/janusweb"]
+	path = provision/submodules/janusweb
+	url = https://github.com/jbaicoianu/janusweb.git
