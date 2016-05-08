@@ -4,3 +4,6 @@
 [submodule "provision/submodules/janusweb"]
 	path = provision/submodules/janusweb
 	url = https://github.com/jbaicoianu/janusweb.git
+[submodule "provision/submodules/share"]
+	path = provision/submodules/share
+	url = https://github.com/jbaicoianu/elation-share.git

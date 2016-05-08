@@ -35,6 +35,7 @@ ln -s /vagrant/provision/submodules/elation/config/apache-elation.conf /etc/apac
 
 ln -s /vagrant/provision/submodules/elation /var/www/elation
 ln -s /vagrant/provision/submodules/janusweb /var/www/elation/components/janusweb
+ln -s /vagrant/provision/submodules/share /var/www/elation/components/share
 
 a2ensite 001-elation
 a2enmod rewrite
@@ -45,7 +46,7 @@ service apache2 restart
 ## CONFIGURE ELATION
 cd /var/www/elation
 ./elation web init
-./elation component enable engine physics share janusweb
+./elation component enable engine physics share janusweb demos
 
 ## CONFIGURE JANUSWEB
 cd /var/www/elation/components/janusweb

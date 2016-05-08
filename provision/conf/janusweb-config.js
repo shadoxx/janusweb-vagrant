@@ -1,5 +1,5 @@
 elation.config.set('dependencies.protocol', 'http:'); //document.location.protocol);
-elation.config.set('dependencies.host', 'localhost');
+elation.config.set('dependencies.host', 'localhost:8000');
 elation.config.set('dependencies.path', elation.config.get('dependencies.protocol') + '//' + elation.config.get('dependencies.host') + '/');
 elation.config.set('dependencies.main', 'janusweb.js');
 elation.config.set('janusweb.network.host', 'ws://janusweb.lnq.to:5566');
