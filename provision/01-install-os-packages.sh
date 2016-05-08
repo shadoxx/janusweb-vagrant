@@ -36,3 +36,8 @@ a2enmod rewrite
 
 # restart apache one last time
 service apache2 restart
+
+## CONFIGURE ELATION
+cd /var/www/elation
+./elation web init
+./elation component enable janusweb
