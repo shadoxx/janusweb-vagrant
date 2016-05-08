@@ -16,10 +16,14 @@ apt-get install -y \
     apache2 \
     mysql-server \
     nodejs \
+    smarty3 \
     php5 \
+    php-apc \
+    php5-cgi \
     php5-mysql \
     php5-sqlite \
-    php5-memcache
+    php5-memcache \
+    phpunit
 
 ## CONFIGURE APACHE
 
