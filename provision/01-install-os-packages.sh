@@ -14,6 +14,7 @@ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 apt-get install -y \
     git \
     apache2 \
+    libapache2-mod-php5 \
     mysql-server \
     nodejs \
     smarty3 \
@@ -44,4 +45,11 @@ service apache2 restart
 ## CONFIGURE ELATION
 cd /var/www/elation
 ./elation web init
-./elation component enable janusweb
+./elation component enable engine physics share janusweb
+
+## CONFIGURE JANUSWEB
+cd /var/www/elation/components/janusweb
+rm scripts/config.js
+ln -s /vagrant/provision/conf/janusweb-config.js /var/www/elation/components/janusweb/scripts/config.js
+
+npm run build
