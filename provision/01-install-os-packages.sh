@@ -15,7 +15,6 @@ apt-get install -y \
     git \
     apache2 \
     libapache2-mod-php5 \
-    mysql-server \
     nodejs \
     smarty3 \
     php5 \
@@ -31,12 +30,19 @@ apt-get install -y \
 # Change the user Apache runs under so we don't run into permissions issues
 sed -i -e 's/www-data/vagrant/g' /etc/apache2/envvars
 
-ln -s /vagrant/provision/submodules/elation/config/apache-elation.conf /etc/apache2/sites-available/001-elation.conf
+# install our apache configuration
+ln -s /vagrant/provision/conf/apache.conf /etc/apache2/sites-available/001-elation.conf
 
+# setup the webroot and elation components
 ln -s /vagrant/provision/submodules/elation /var/www/elation
 ln -s /vagrant/provision/submodules/janusweb /var/www/elation/components/janusweb
 ln -s /vagrant/provision/submodules/share /var/www/elation/components/share
 
+# hack until the .htaccess is fixed in the main Elation repository
+rm /var/www/elation/htdocs/.htaccess
+ln -s /vagrant/provision/conf/htaccess /var/www/elation/htdocs/.htaccess
+
+# enable vhost and bounce apache
 a2ensite 001-elation
 a2enmod rewrite
 
@@ -51,6 +57,8 @@ cd /var/www/elation
 ## CONFIGURE JANUSWEB
 cd /var/www/elation/components/janusweb
 rm scripts/config.js
+
+# configure janusweb for localhost before we build
 ln -s /vagrant/provision/conf/janusweb-config.js /var/www/elation/components/janusweb/scripts/config.js
 
 npm run build

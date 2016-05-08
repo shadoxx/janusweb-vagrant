@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+ 
+  # Pass off immediately to Elation for all URLs under the Elation web root,
+  # unless the file already exists.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule .* index.php [QSA]
+</IfModule>
