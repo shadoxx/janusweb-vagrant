@@ -3,7 +3,7 @@ elation.config.set('dependencies.host', 'localhost:8000');
 elation.config.set('dependencies.path', elation.config.get('dependencies.protocol') + '//' + elation.config.get('dependencies.host') + '/');
 elation.config.set('dependencies.main', 'janusweb.js');
 elation.config.set('janusweb.network.host', 'ws://janusweb.lnq.to:5566');
-elation.config.set('janusweb.network.corsproxy', 'http://janusweb.lnq.to:8089/');
+elation.config.set('janusweb.network.corsproxy', '');
 elation.config.set('janusweb.datapath', elation.config.get('dependencies.path') + 'media/');
 elation.config.set('janusweb.tracking.enabled', true);
 elation.config.set('janusweb.tracking.clientid', 'UA-49582649-2');
