@@ -1,5 +1,6 @@
 elation.config.set('janusweb.network.host', 'wss://janusweb.lnq.to:5567');        // Default presence server
 elation.config.set('janusweb.network.corsproxy', 'https://janusweb.lnq.to:8089/'); // CORS proxy URL
+//elation.config.set('janusweb.network.corsproxy', '');
  
 elation.config.set('janusweb.tracking.enabled', false);
 elation.config.set('janusweb.tracking.clientid', '');
