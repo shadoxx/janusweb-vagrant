@@ -36,7 +36,6 @@ ln -s /vagrant/provision/conf/apache.conf /etc/apache2/sites-available/001-elati
 # setup the webroot and elation components
 ln -s /vagrant/provision/submodules/elation /var/www/elation
 ln -s /vagrant/provision/submodules/janusweb /var/www/elation/components/janusweb
-ln -s /vagrant/provision/submodules/share /var/www/elation/components/share
 
 # hack until the .htaccess is fixed in the main Elation repository
 rm /var/www/elation/htdocs/.htaccess
@@ -56,9 +55,9 @@ cd /var/www/elation
 
 ## CONFIGURE JANUSWEB
 cd /var/www/elation/components/janusweb
-rm scripts/config.js
 
 # configure janusweb for localhost before we build
+rm scripts/config.js
 ln -s /vagrant/provision/conf/janusweb-config.js /var/www/elation/components/janusweb/scripts/config.js
 
 npm run build
