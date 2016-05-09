@@ -1,41 +1,26 @@
 # janusweb-vagrant
-Elation + JanusWeb Development Environment
+Elation Development Environment for JanusWeb
 
-This repository is intended to serve as the basis for developing and exploring content
-in the metaverse using nothing but a standard web-browser.
-
-# Initial Checkout Commands #
+# Getting Started #
+This project heavily utilizes submodule dependencies and requires the `--recursive`
+flag when performing the initial checkout of this repository:
 ```
-git submodule init
-git submodule update
+git clone --recursive https://github.com/shadoxx/janusweb-vagrant.git
 ```
 
-These two commands in sequence initialize the directories our submodules
-with be stored in and then checks out our submodules from Git.
-
-JanusWeb uses the Elation engine, which has submodules of its own, so we'll need to pull all of those components in the same way before continuing:  
-
+After Git finishes pulling in all of our submodules, run `vagrant up` and wait
+for the command to complete. Direct your browser to:
 ```
-git submodule foreach git submodule init
-git submodule foreach git submodule update
-git submodule foreach git checkout master
+http://localhost:8000/janusweb
 ```
 
-After Git finishes pulling in all our Elation components, now we can do
-a `vagrant up` and have ourselves a development environment!
+If everything completed successfully, you can now begin developing and exploring
+the metaverse!
 
-More documentation to follow.
+# JanusWeb Standalone #
+This project attempts to automatically compile the latest JanusWeb from source
+using the included build script (`provision/submodules/janusweb/utils/build.sh`).
+If you're just looking for the drop in JanusWeb components, they can be located
+in `provision/submodules/janusweb/build`.
 
-# ADDENDUM #
-There are some problems with the Elation engine submodule setup right now. Until
-the issues with the repository are fixed, you'll need to run some `git` commands
-to get everything up and running properly:
-
-```
-cd provision/submodules/Elation
-git rm --cached components/pandora
-
-git submodule foreach git submodule foreach git submodule init
-git submodule foreach git submodule foreach git update
-git submodule foreach git submodule foreach git checkout master
-```
+More documentation to follow!
