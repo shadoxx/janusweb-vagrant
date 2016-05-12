@@ -4,6 +4,7 @@ Vagrant.configure(2) do |config|
   
   ## FORWARDED PORTS
   config.vm.network "forwarded_port", guest: 80, host: 8000     # Apache
+  config.vm.network "forwarded_port", guest: 8080, host: 8080   # CORS Proxy
   config.vm.network "forwarded_port", guest: 5566, host: 5566   # Janus Prescence Server
 
   ## NETWORKING

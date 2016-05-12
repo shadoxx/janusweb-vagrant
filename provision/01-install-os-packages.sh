@@ -44,6 +44,7 @@ ln -s /vagrant/provision/conf/htaccess /var/www/elation/htdocs/.htaccess
 # enable vhost and bounce apache
 a2ensite 001-elation
 a2enmod rewrite
+a2enmod headers
 
 # restart apache one last time
 service apache2 restart
