@@ -59,6 +59,6 @@ cd /var/www/elation/components/janusweb
 
 # configure janusweb for localhost before we build
 rm scripts/config.js
-ln -s /vagrant/provision/conf/janusweb-config.js /var/www/elation/components/janusweb/scripts/config.js
+ln -s /vagrant/provision/conf/janusweb-config.prod.js /var/www/elation/components/janusweb/scripts/config.js
 
 npm run build
