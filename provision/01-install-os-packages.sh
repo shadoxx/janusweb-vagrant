@@ -12,6 +12,7 @@ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 
 # Install our operating system packages
 apt-get install -y \
+    build-essential \
     git \
     apache2 \
     libapache2-mod-php5 \
@@ -23,7 +24,9 @@ apt-get install -y \
     php5-mysql \
     php5-sqlite \
     php5-memcache \
-    phpunit
+    phpunit \
+    pkg-config \
+    libjpeg-dev
 
 ## CONFIGURE APACHE
 
@@ -35,11 +38,11 @@ ln -s /vagrant/provision/conf/apache.conf /etc/apache2/sites-available/001-elati
 
 # setup the webroot and elation components
 ln -s /vagrant/provision/submodules/elation /var/www/elation
-ln -s /vagrant/provision/submodules/janusweb /var/www/elation/components/janusweb
+ln -s /vagrant/provision/submodules/janusweb /var/www/elation/components/
 
 # hack until the .htaccess is fixed in the main Elation repository
-rm /var/www/elation/htdocs/.htaccess
-ln -s /vagrant/provision/conf/htaccess /var/www/elation/htdocs/.htaccess
+#rm /var/www/elation/htdocs/.htaccess
+#ln -s /vagrant/provision/conf/htaccess /var/www/elation/htdocs/.htaccess
 
 # enable vhost and bounce apache
 a2ensite 001-elation
@@ -50,15 +53,15 @@ a2enmod headers
 service apache2 restart
 
 ## CONFIGURE ELATION
-cd /var/www/elation
-./elation web init
-./elation component enable engine physics share janusweb demos
+#cd /var/www/elation
+#./elation web init
+#./elation component enable engine physics share janusweb demos
 
 ## CONFIGURE JANUSWEB
-cd /var/www/elation/components/janusweb
+#cd /var/www/elation/components/janusweb
 
 # configure janusweb for localhost before we build
-rm scripts/config.js
-ln -s /vagrant/provision/conf/janusweb-config.prod.js /var/www/elation/components/janusweb/scripts/config.js
+#rm scripts/config.js
+#ln -s /vagrant/provision/conf/janusweb-config.prod.js /var/www/elation/components/janusweb/scripts/config.js
 
-npm run build
+#npm run build
